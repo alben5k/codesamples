@@ -1,0 +1,14 @@
+{
+  "$schema"         : "./json_config_schema.json",
+  "storageStrategy" : "json_storage.JsonStorageStrategy",
+  "searchStrategy"  : "json_search.JsonSearchStrategy",
+  "storagePath"     : "{BRANCH_ROOT}/asset_import_id",
+  "useUniversal"    : true,
+  "universalSchema" : "universal_schema.UniversalSchema",
+  "schemas"         : {
+    "staticMeshSchema" : "static_mesh_schema.StaticMeshSchema"
+  },
+  "requiredEnvirons"  : {
+    "storagePath": ["BRANCH_ROOT"]
+  }
+}

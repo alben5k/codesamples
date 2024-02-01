@@ -1,0 +1,59 @@
+{
+  "$id"         : "./json_config_schema.json",
+  "$schema"     : "https://json-schema.org/draft/2020-12/schema",
+  "title"       : "Data Config Schema",
+  "description" : "The schema for the data config. Confusing, but this is the json schema for the json config files to use.",
+  "properties"  : {
+    "storageStrategy" : {
+      "type"        : "string",
+      "required"    : true,
+      "description" : "The storage strategy object to use for the data."
+    },
+    "searchStrategy"  : {
+      "type"        : "string",
+      "required"    : true,
+      "description" : "The search strategy object to use for the data."
+    },
+    "storagePath"     : {
+      "type"        : "string",
+      "required"    : true,
+      "description" : "The path to the database or directory to store data."
+    },
+    "useUniversal"    : {
+      "type"        : "boolean",
+      "required"    : false,
+      "description" : "Whether to use the universal data object."
+    },
+    "universalSchema" : {
+      "type"        : "string",
+      "required"    : false,
+      "description" : "The universal data schema object to use."
+    },
+    "schemas"         : {
+      "type"              : "object",
+      "required"          : true,
+      "description"       : "The sub-schema objects to use for the data.",
+      "patternProperties" : {
+        "^[a-zA-Z_]+[a-zA-Z0-9_]*$" : {
+          "type"  : "string"
+        }
+      }
+    },
+    "requiredEnvirons"  : {
+      "type"              : "object",
+      "required"          : false,
+      "description"       : "The required environment variables for formatting the configuration strings.",
+      "patternProperties" : {
+        "^[a-zA-Z]*$" : {
+          "type"  : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  },
+  "dependencies" : {
+    "useUniversal": ["universalSchema"]
+  }
+}
