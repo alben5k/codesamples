@@ -1,0 +1,1 @@
+Inputs can come from anywhere, but I like to put all of my test files in one place so I left this folder here for you.

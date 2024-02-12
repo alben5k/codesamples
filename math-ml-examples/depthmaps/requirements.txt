@@ -1,0 +1,14 @@
+pillow
+numpy
+scipy
+trimesh
+
+# Kinda just assuming that cuda is installed on the system.
+-i https://download.pytorch.org/whl/cu121
+torch
+torchvision
+
+-i https://pypi.org/simple
+#transformers
+# As of 02/06/24 we need to install from source to work with depth anything
+git+https://github.com/huggingface/transformers
